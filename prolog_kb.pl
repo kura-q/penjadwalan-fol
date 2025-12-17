@@ -1,14 +1,17 @@
 % =================================================================
 % FILE: prolog_kb.pl
 % Knowledge Base Logika Orde Pertama (FOL)
-% TEMA: Bentrok Penjadwalan Ujian ETS (Room + Invigilator Constraints)
+% TEMA: Bentrok Penjadwalan Ujian ETS 
 % =================================================================
-% Predikat tambahan:
+% Predikat:
+% jumlah_ruang/2, ketersediaan_ruang/2, mata_kuliah/3,
+% jumlah_kelas/3, jadwal_penggunaan/3, pengawas/2,
+% kelas_dijadwalkan/3, butuh_ruang/1,
 % kelas_di_ruang/3, ditugaskan/3, kebutuhan_ruang/2
 % =================================================================
 
 % -----------------------------------------------------------------
-% FACTS (>= 15)
+% FACTS
 % -----------------------------------------------------------------
 
 % Kapasitas ruang di gedung
@@ -64,7 +67,7 @@ kebutuhan_ruang(praktek, lab).
 
 
 % -----------------------------------------------------------------
-% RULES (>= 8)
+% RULES
 % -----------------------------------------------------------------
 
 % Rule 1 — Bentrok Ruangan yang benar-benar “ruang sama, waktu sama”
