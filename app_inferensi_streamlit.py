@@ -44,12 +44,21 @@ inferensi_list = [
 def run_query(q: str) -> str:
     try:
         results = list(prolog.query(q))
+
         if not results:
-            return "❌ TIDAK VALID (False)"
-        if results == [{}]:
-            return "✅ VALID (True)"
-        # tampilkan rapi per solusi
-        return "\n".join(str(r) for r in results)
+            return "❌ TIDAK VALID"
+
+        output = ["✅ VALID"]
+
+        # Jika query punya binding variabel
+        if results != [{}]:
+            output.append("Hasil binding variabel:")
+            for i, r in enumerate(results, start=1):
+                bindings = ", ".join(f"{k} = {v}" for k, v in r.items())
+                output.append(f"{i}. {bindings}")
+
+        return "\n".join(output)
+
     except Exception as e:
         return f"ERROR: {e}"
 
